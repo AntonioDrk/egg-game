@@ -37,9 +37,13 @@ public class PlayerContoller : MonoBehaviour
         if (movement.x != 0)
         {
             if (movement.x > 0)
-                spriteRenderer.flipX = false;
+            {
+                transform.localScale = new Vector3(2, 2, 2);
+            }
             else
-                spriteRenderer.flipX = true;
+            {
+                transform.localScale = new Vector3(-2, 2, 2);
+            }
 
             anim.SetBool("moving", true);
             rb.velocity = new Vector2(rb.velocity.x + speed * Time.fixedDeltaTime * movement.x, rb.velocity.y);
