@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 401869780}
   - component: {fileID: 401869782}
   - component: {fileID: 401869781}
+  - component: {fileID: 401869783}
   m_Layer: 10
   m_Name: Egg
   m_TagString: Untagged
@@ -609,6 +610,26 @@ MonoBehaviour:
   distanceText: {fileID: 561188585}
   player: {fileID: 679727719}
   pickupAllowed: 0
+  isInHand: 0
+--- !u!95 &401869783
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401869778}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc949b009c6c16c4586055cffc835e9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &510033301
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0862cefd76ee94596916881ff8951d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  egg: {fileID: 401869778}
   m_MovementSmoothing: 0.05
   speed: 40
   _jumpForce: 7

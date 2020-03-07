@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerContoller : MonoBehaviour
 {
+    public GameObject egg;
     private Rigidbody2D rb;
     private Animator anim;
     private Vector3 movement;
@@ -75,6 +76,13 @@ public class PlayerContoller : MonoBehaviour
             {
                 _grounded = false;
                 anim.SetBool("jump", true);
+                var eggController = egg.GetComponent<EggController>();
+                if (eggController.isInHand)
+                {
+                    var eggAnimator = egg.GetComponent<Animator>();
+                    eggAnimator.SetBool("isCracked", true);
+                    eggController.PlaceDown();
+                }
             }
             else
             {

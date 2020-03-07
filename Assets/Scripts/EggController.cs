@@ -15,6 +15,7 @@ public class EggController : MonoBehaviour
 
     [SerializeField]
     private bool pickupAllowed;
+    public bool isInHand;
 
     void Start()
     {
@@ -52,14 +53,14 @@ public class EggController : MonoBehaviour
                 PlaceDown();
             }
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            if(!pickupAllowed)
+            if (!pickupAllowed)
             {
                 pickupText.gameObject.SetActive(true);
                 pickupAllowed = true;
@@ -82,11 +83,13 @@ public class EggController : MonoBehaviour
         this.transform.SetParent(player);
         this.transform.localPosition = new Vector3(0.35f, -0.75f, 0f);
         this.GetComponent<Renderer>().sortingOrder = 1;
+        isInHand = true;
     }
 
-    void PlaceDown()
+    public void PlaceDown()
     {
         this.transform.parent = null;
         this.transform.position = new Vector3(player.position.x, 0.95f, 0f);
+        isInHand = false;
     }
 }
