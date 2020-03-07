@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerContoller : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PlayerContoller : MonoBehaviour
     private Animator anim;
     private Vector3 movement;
     private SpriteRenderer spriteRenderer;
+
+    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
+    private Vector3 m_Velocity = Vector3.zero;
 
     public float speed;
     public float _jumpForce;
@@ -22,12 +26,6 @@ public class PlayerContoller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
     }
 
     void Movement()
@@ -46,25 +44,28 @@ public class PlayerContoller : MonoBehaviour
             }
 
             anim.SetBool("moving", true);
-            rb.velocity = new Vector2(rb.velocity.x + speed * Time.fixedDeltaTime * movement.x, rb.velocity.y);
+
+            Vector3 targetVelocity = new Vector2(speed * Time.fixedDeltaTime * movement.x * 10f, rb.velocity.y);
+            rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
         }
         else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
             anim.SetBool("moving", false);
-        
-        if(Input.GetKeyDown(KeyCode.Space) && _grounded)
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _grounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, _jumpForce); 
         }
         
     }
 
-    void FixedUpdate()
+    void CheckRaycastHit()
     {
-        Movement();
-
         // Cast a ray straight down.
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 100, LayerMask.GetMask("Platform"));
-        
+
         // If it hits something...
         if (hit.collider != null)
         {
@@ -81,6 +82,12 @@ public class PlayerContoller : MonoBehaviour
                 anim.SetBool("jump", false);
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        Movement();
+        CheckRaycastHit();
     }
 
 }

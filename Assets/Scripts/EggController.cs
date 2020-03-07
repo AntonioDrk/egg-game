@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,9 @@ public class EggController : MonoBehaviour
 {
     [SerializeField]
     private Text pickupText;
+    [SerializeField]
+    private Text distanceText;
+
     public Transform player;
 
     [SerializeField]
@@ -18,9 +22,26 @@ public class EggController : MonoBehaviour
         pickupText.gameObject.SetActive(false);
     }
 
+    void DisplayDistanceFromEgg()
+    {
+        float distance = Mathf.Abs(transform.position.x - player.position.x);
+        distanceText.text = String.Format("{0:0.00}", distance) + " meters";
+
+        if (distance >= 20)
+        {
+            distanceText.color = Color.red;
+            if (distance >= 25) ;
+            // you lost
+        }
+        else
+            distanceText.color = Color.white;
+    }
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+
+        DisplayDistanceFromEgg();
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if(pickupAllowed)
             {
