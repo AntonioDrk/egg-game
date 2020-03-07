@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private Transform cameraFollow;
     private float minSpeed = 1.5f;
-    private float currSpeed = 2f;
+    private float _currSpeed = 2f;
     
 
     void Start()
@@ -27,12 +27,13 @@ public class CameraController : MonoBehaviour
     void KeepInBounds()
     {
         Vector3 currPos = cameraFollow.position;
-        float distance = Vector2.Distance(currPos, target.position);
+        Vector3 targetPos = target.position;
+        float distance = Vector2.Distance(currPos, targetPos);
 
-        currSpeed = 1.5f * distance < minSpeed ? minSpeed : 1.5f * distance;
+        _currSpeed = 1.5f * distance < minSpeed ? minSpeed : 1.5f * distance;
 
-        Vector3 moveStep = Vector3.MoveTowards(new Vector3(currPos.x, currPos.y, target.position.z),
-            target.position, currSpeed * Time.deltaTime);
+        Vector3 moveStep = Vector3.MoveTowards(new Vector3(currPos.x, currPos.y, targetPos.z),
+            targetPos, _currSpeed * Time.deltaTime);
         
         cameraFollow.position = new Vector3(moveStep.x, moveStep.y, currPos.z);
     }
