@@ -80,16 +80,16 @@ public class EggController : MonoBehaviour
 
     void PickUp()
     {
-        this.transform.SetParent(player);
-        this.transform.localPosition = new Vector3(0.35f, -0.75f, 0f);
-        this.GetComponent<Renderer>().sortingOrder = 1;
+        transform.SetParent(player);
+        transform.localPosition = new Vector3(0.35f, -0.071f, 0f);
+        GetComponent<Renderer>().sortingOrder = 1;
         isInHand = true;
     }
 
     public void PlaceDown()
     {
-        this.transform.parent = null;
-        this.transform.position = new Vector3(player.position.x, 0.95f, 0f);
+        transform.parent = null;
+        transform.position = new Vector3(player.position.x, player.position.y - 0.48f, 0f);
         isInHand = false;
     }
 }
