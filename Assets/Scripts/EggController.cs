@@ -44,11 +44,11 @@ public class EggController : MonoBehaviour
         DisplayDistanceFromEgg();
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(pickupAllowed)
+            if(pickupAllowed && isInHand == false)
             {
                 PickUp();
             }
-            else if (this.transform.parent != null)
+            else
             {
                 PlaceDown();
             }

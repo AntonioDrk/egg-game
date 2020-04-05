@@ -85,36 +85,6 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-    /*void CheckRaycastHit()
-    {
-        // Cast a ray straight down.
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 100, LayerMask.GetMask("Platform"));
-
-        // If it hits something...
-        if (hit.collider != null)
-        {
-            float distToGround = Mathf.Abs(hit.collider.gameObject.transform.position.y - transform.position.y);
-            Debug.Log(distToGround);
-            if (distToGround > _groundedDistValue)
-            {
-                _grounded = false;
-                anim.SetBool("jump", true);
-                var eggController = egg.GetComponent<EggController>();
-                if (eggController.isInHand)
-                {
-                    var eggAnimator = egg.GetComponent<Animator>();
-                    eggAnimator.SetBool("isCracked", true);
-                    eggController.PlaceDown();
-                }
-            }
-            else
-            {
-                _grounded = true;
-                anim.SetBool("jump", false);
-            }
-        }
-    }*/
-
     private void OnCollisionStay2D(Collision2D other)
     {
         // Check if the collision was made with an object under the player
@@ -141,12 +111,6 @@ public class PlayerContoller : MonoBehaviour
         // foreach contact point
         foreach (ContactPoint2D c in collision.contacts)
         {
-            // Check to see the direction of the vector
-            // (if it's negative it means we're above, if it's positive it means we collided with something above)
-            
-            //Vector2 lowestPlyPoint = new Vector2(spriteRenderer.bounds.min.x,  );
-            //Vector2 collisionDirVec2 = c.point - lowestPlyPoint;
-            
             // If the point is lower, then the player is on the ground
             if (c.point.y < spriteRenderer.bounds.min.y + _groundCheckingBias)
             {
