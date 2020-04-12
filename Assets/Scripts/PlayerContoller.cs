@@ -79,9 +79,7 @@ public class PlayerContoller : MonoBehaviour
         EggController eggController = egg.GetComponent<EggController>();
         if (eggController.isInHand)
         {
-            var eggAnimator = egg.GetComponent<Animator>();
-            eggAnimator.SetBool("isCracked", true);
-            eggController.PlaceDown();
+            eggController.EggCrack();
         }
     }
 
@@ -119,5 +117,15 @@ public class PlayerContoller : MonoBehaviour
         }
 
         return isWithGround;
+    }
+
+    /// <summary>
+    /// Function callback that gets called when the player is killed
+    /// </summary>
+    public void KillPlayer()
+    {
+        // instantiate the particles prefab from Resources
+        Instantiate(Resources.Load<GameObject>("DeathParticles") as GameObject, transform.position, Quaternion.identity);        
+        this.gameObject.SetActive(false);
     }
 }
