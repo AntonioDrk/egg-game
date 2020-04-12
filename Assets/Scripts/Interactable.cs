@@ -26,7 +26,7 @@ public class Interactable : MonoBehaviour
         
         if (_anim == null)
         {
-            Debug.LogError("There's no animator on this object.");
+            //Debug.LogError("There's no animator on this object.");
         }
     }
 
