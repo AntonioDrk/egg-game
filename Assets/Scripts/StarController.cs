@@ -8,11 +8,15 @@ public class StarController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            // Increase the points number and display it 
             GameManager.Instance.Points++;
             GameManager.Instance.UpdatePointsText();
+
+            // Instantiate the particles prefab from Resources
             Instantiate(Resources.Load<GameObject>("StarParticles") as GameObject, transform.position, Quaternion.identity);
+
+            // Destroy the star
             Destroy(this.transform.parent.gameObject);
-            Destroy(this.gameObject);
         }
     }
 }

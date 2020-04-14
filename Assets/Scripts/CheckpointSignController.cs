@@ -8,7 +8,7 @@ public class CheckpointSignController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.UpdateInstructionsText("Data saved");
+            GameManager.Instance.UpdateInstructionsText("Progress saved");
             SaveSystem.SaveCheckpointData(this.gameObject.transform.position);
         }
     }
