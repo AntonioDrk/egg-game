@@ -29,7 +29,22 @@ public class PlayerContoller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        // Load the data of the last checkpoint
+        LoadLastCheckpoint();
     }
+    
+    private void LoadLastCheckpoint()
+    {
+        CheckpointData data = SaveSystem.LoadCheckpointData();
+        if (data != null)
+        {
+            GameManager.Instance.Points = data.points;
+            GameManager.Instance.UpdatePointsText();
+            this.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+        }
+    }
+
     void FixedUpdate()
     {
         Movement();
@@ -124,8 +139,11 @@ public class PlayerContoller : MonoBehaviour
     /// </summary>
     public void KillPlayer()
     {
-        // instantiate the particles prefab from Resources
+        // Instantiate the particles prefab from Resources
         Instantiate(Resources.Load<GameObject>("DeathParticles") as GameObject, transform.position, Quaternion.identity);        
         this.gameObject.SetActive(false);
+         
+        // Load the scene again after the death particle effect
+        GameManager.Instance.Invoke("LoadSceneAgain", 2.0f);
     }
 }

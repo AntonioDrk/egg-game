@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class EggController : MonoBehaviour
 {
     [SerializeField]
-    private Text pickupText;
-    [SerializeField]
     private Text distanceText;
 
     public Transform player;
@@ -24,7 +22,6 @@ public class EggController : MonoBehaviour
     {
         cracked = false;
         pickupAllowed = false;
-        pickupText.gameObject.SetActive(false);
         anim = GetComponent<Animator>();
     }
 
@@ -67,7 +64,7 @@ public class EggController : MonoBehaviour
         {
             if (!pickupAllowed && !cracked)
             {
-                pickupText.gameObject.SetActive(true);
+                GameManager.Instance.UpdateInstructionsText("Press 'E' to pick up");
                 pickupAllowed = true;
             }
         }
@@ -78,7 +75,7 @@ public class EggController : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            pickupText.gameObject.SetActive(false);
+            GameManager.Instance.UpdateInstructionsText("");
             pickupAllowed = false;
         }
     }

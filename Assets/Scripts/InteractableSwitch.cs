@@ -32,7 +32,6 @@ public class InteractableSwitch : Interactable
     {
         if (Input.GetKeyDown(KeyCode.F) && interactionAllowed)
         {
-            Debug.Log("interact");
             ChangeSprite(activated);
             _interactCallback.Invoke(activated);
             activated = !activated;
@@ -44,6 +43,7 @@ public class InteractableSwitch : Interactable
         // If the player is near the switch, the interaction is allowed
         if (other.gameObject.CompareTag("Player"))
         {
+            GameManager.Instance.UpdateInstructionsText("Press 'F' to switch");
             interactionAllowed = true;
         }
     }
@@ -52,6 +52,7 @@ public class InteractableSwitch : Interactable
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GameManager.Instance.UpdateInstructionsText("");
             interactionAllowed = false;
         }
     }
