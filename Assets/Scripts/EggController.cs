@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class EggController : MonoBehaviour
 {
     [SerializeField]
-    private Text pickupText;
-    [SerializeField]
     private Text distanceText;
 
     public Transform player;
@@ -17,10 +15,14 @@ public class EggController : MonoBehaviour
     private bool pickupAllowed;
     public bool isInHand;
 
+    private Animator anim;
+    private bool cracked;
+
     void Start()
     {
+        cracked = false;
         pickupAllowed = false;
-        pickupText.gameObject.SetActive(false);
+        anim = GetComponent<Animator>();
     }
 
     void DisplayDistanceFromEgg()
@@ -31,7 +33,7 @@ public class EggController : MonoBehaviour
         if (distance >= 20)
         {
             distanceText.color = Color.red;
-            if (distance >= 25) ;
+            //if (distance >= 25) ;
             // you lost
         }
         else
@@ -42,13 +44,13 @@ public class EggController : MonoBehaviour
     {
 
         DisplayDistanceFromEgg();
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !cracked)
         {
             if(pickupAllowed && isInHand == false)
             {
                 PickUp();
             }
-            else
+            else if(isInHand == true)
             {
                 PlaceDown();
             }
@@ -60,9 +62,9 @@ public class EggController : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            if (!pickupAllowed)
+            if (!pickupAllowed && !cracked)
             {
-                pickupText.gameObject.SetActive(true);
+                GameManager.Instance.UpdateInstructionsText("Press 'E' to pick up");
                 pickupAllowed = true;
             }
         }
@@ -73,7 +75,7 @@ public class EggController : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            pickupText.gameObject.SetActive(false);
+            GameManager.Instance.UpdateInstructionsText("");
             pickupAllowed = false;
         }
     }
@@ -91,5 +93,34 @@ public class EggController : MonoBehaviour
         transform.parent = null;
         transform.position = new Vector3(player.position.x, player.position.y - 0.48f, 0f);
         isInHand = false;
+    }
+
+    public void EggCrack()
+    {
+        cracked = true;
+        isInHand = false;
+        transform.parent = null;
+        IEnumerator coroutine = EggFall(new Vector3(transform.position.x, player.position.y - 0.48f, 0f), 1.0f);
+        StartCoroutine(coroutine);
+    }
+
+    private IEnumerator EggFall(Vector3 groundPosition, float speed)
+    {
+        float step = (speed / (transform.position - groundPosition).magnitude) * Time.fixedDeltaTime;
+        float t = 0f;
+        while (Vector3.Distance(transform.position, groundPosition) > 0.001f)
+        {
+            t += step;
+            transform.position = Vector3.Lerp(transform.position, groundPosition, t);
+            yield return new WaitForFixedUpdate();
+        }
+        anim.SetBool("isCracked", true);
+    }
+    
+    public void Explosion()
+    {
+        // instantiate the particles prefab from Resources
+        Instantiate(Resources.Load<GameObject>("EggCrackParticles") as GameObject, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }

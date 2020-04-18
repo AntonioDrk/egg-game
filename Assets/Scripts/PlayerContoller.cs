@@ -29,7 +29,8 @@ public class PlayerContoller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-    }
+    }    
+
     void FixedUpdate()
     {
         Movement();
@@ -79,9 +80,7 @@ public class PlayerContoller : MonoBehaviour
         EggController eggController = egg.GetComponent<EggController>();
         if (eggController.isInHand)
         {
-            var eggAnimator = egg.GetComponent<Animator>();
-            eggAnimator.SetBool("isCracked", true);
-            eggController.PlaceDown();
+            eggController.EggCrack();
         }
     }
 
@@ -119,5 +118,18 @@ public class PlayerContoller : MonoBehaviour
         }
 
         return isWithGround;
+    }
+
+    /// <summary>
+    /// Function callback that gets called when the player is killed
+    /// </summary>
+    public void KillPlayer()
+    {
+        // Instantiate the particles prefab from Resources
+        Instantiate(Resources.Load<GameObject>("DeathParticles") as GameObject, transform.position, Quaternion.identity);        
+        this.gameObject.SetActive(false);
+
+        // Load the scene again after the death particle effect
+        UIManager.Instance.Invoke("LoadSceneAgain", 2.0f);
     }
 }
