@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (GameManager.Instance != null)
+        {
+            Debug.LogError("There seem to be two GameManagers instances in this scene, this will cause unwanted behaviour!");
+        }
         Instance = this;
     }
 

@@ -12,6 +12,7 @@ public class BridgeLogic : MonoBehaviour
     private bool _FadeOut = true;
     private float t = 0f;
     [SerializeField] private float _fadeSpeed = 1f;
+    [SerializeField] private bool _startFaded = true;
     private TilemapCollider2D _tilemapCollider;
 
     private void Start()
@@ -21,9 +22,21 @@ public class BridgeLogic : MonoBehaviour
         
         if(_tilemapCollider == null)
             Debug.LogError("TileMapCollider2D missing from the object!!");
-        
-        _material.SetFloat("_Fade", _fadeIndex);
-        _tilemapCollider.enabled = false;
+
+        // If chosen to start faded
+        if (_startFaded)
+        {
+            // 
+            _FadeOut = true;
+            _material.SetFloat("_Fade", _fadeIndex);
+            _tilemapCollider.enabled = false;
+        }
+        else
+        {
+            _FadeOut = false;
+            _fadeIndex = 1;
+            _tilemapCollider.enabled = true;
+        }
     }
 
     private void Update()
@@ -56,7 +69,7 @@ public class BridgeLogic : MonoBehaviour
 
     public void OnInteract(bool isInteracted)
     {
-        _FadeOut = !isInteracted;
+        _FadeOut = _startFaded ? !isInteracted : isInteracted;
         t = 0f;
     }
 }

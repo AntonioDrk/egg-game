@@ -81,7 +81,15 @@ public class PlayerContoller : MonoBehaviour
         if (eggController.isInHand)
         {
             eggController.EggCrack();
+            StartCoroutine(RestartLevelAfterTime(2));
         }
+    }
+
+    IEnumerator RestartLevelAfterTime(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        
+        KillPlayer();
     }
 
     private void OnCollisionStay2D(Collision2D other)
