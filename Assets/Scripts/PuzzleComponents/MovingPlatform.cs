@@ -11,9 +11,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private bool _horizontal = true;
     // Distance required for the platform to travel, this can be also negative resulting in a reverse motion
     [SerializeField] private float _distance;
-    [SerializeField] private float _timeToTarget = 1f;
-    [SerializeField] private float _smoothTime = 1f;
-
+    [SerializeField][Min(0)] private float _timeToTarget = 1f;
+    
     private Vector2 _startPos;
     private Vector2 _endPos;
     private Vector2 _target;
@@ -34,16 +33,22 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // If on the platform the egg entered and is in hand, don't modify it's hierarchy
+        if (other.CompareTag("Egg") && other.gameObject.GetComponent<EggController>().isInHand)
+            return;
         other.gameObject.transform.SetParent(transform);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        // If on the platform the egg entered and is in hand, don't modify it's hierarchy
+        if (other.CompareTag("Egg") && other.gameObject.GetComponent<EggController>().isInHand)
+            return;
         other.gameObject.transform.SetParent(null);
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector2 myPos2d = new Vector2(transform.position.x, transform.position.y);
         
@@ -63,6 +68,7 @@ public class MovingPlatform : MonoBehaviour
         }
         Vector2 points = Vector2.Lerp(myPos2d, _target, _t);
         transform.position = new Vector3(points.x, points.y, transform.position.z);
-        _t += (Time.fixedDeltaTime / _timeToTarget);
+        _t += (Time.deltaTime / _timeToTarget);
     }
+    
 }

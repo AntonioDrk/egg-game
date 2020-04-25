@@ -530,6 +530,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c74e25103cba714d809b9560d6f3d44, type: 3}
+--- !u!1 &348244439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348244441}
+  - component: {fileID: 348244440}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &348244440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348244439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb01c8c1e8be57439797435f600d9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laser: {fileID: 8300000, guid: ae15486ce6fa8d841ae7db60b01ccbc2, type: 3}
+  star: {fileID: 8300000, guid: 485bdf2c0d780934fbf76bf13f4ad04b, type: 3}
+  bridge: {fileID: 8300000, guid: 6dd05a103c47b23469d404929b912fc9, type: 3}
+  death: {fileID: 8300000, guid: bbb8d67ad6495494fb892b3627fb0879, type: 3}
+  checkpoint: {fileID: 8300000, guid: 28d368966caa42543a816588563d6e65, type: 3}
+  eggCrack: {fileID: 8300000, guid: 4210eea6b3c92b14c9eb159836380646, type: 3}
+--- !u!4 &348244441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348244439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.511452, y: 3.5149133, z: -2.9667969}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &369170237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -889,6 +938,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1950408758}
     m_Modifications:
+    - target: {fileID: 5007065828504348856, guid: c0e995eaa30dc954e83e0e78f72223cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007065828561745647, guid: c0e995eaa30dc954e83e0e78f72223cb,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.1570077
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007065828561745647, guid: c0e995eaa30dc954e83e0e78f72223cb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.315938
+      objectReference: {fileID: 0}
     - target: {fileID: 5007065828918746681, guid: c0e995eaa30dc954e83e0e78f72223cb,
         type: 3}
       propertyPath: _heightRange
@@ -953,6 +1017,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Controlled Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007065829094683686, guid: c0e995eaa30dc954e83e0e78f72223cb,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.15834165
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007065829094683686, guid: c0e995eaa30dc954e83e0e78f72223cb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.3186059
       objectReference: {fileID: 0}
     - target: {fileID: 5007065829344319526, guid: c0e995eaa30dc954e83e0e78f72223cb,
         type: 3}
@@ -7801,7 +7875,7 @@ PrefabInstance:
     - target: {fileID: 2506728846948856430, guid: 97df31777bad1964da3a4a156d3e34e8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.34
+      value: 7.89
       objectReference: {fileID: 0}
     - target: {fileID: 2506728846948856430, guid: 97df31777bad1964da3a4a156d3e34e8,
         type: 3}

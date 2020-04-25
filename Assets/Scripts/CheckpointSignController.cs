@@ -6,6 +6,7 @@ public class CheckpointSignController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.checkpoint);
             GameManager.Instance.UpdateInstructionsText("Progress saved");
             SaveSystem.SaveCheckpointData(this.gameObject.transform.position);
         }

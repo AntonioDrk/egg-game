@@ -102,6 +102,7 @@ public class EggController : MonoBehaviour
         transform.parent = null;
         IEnumerator coroutine = EggFall(new Vector3(transform.position.x, player.position.y - 0.48f, 0f), 1.0f);
         StartCoroutine(coroutine);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.eggCrack);
     }
 
     private IEnumerator EggFall(Vector3 groundPosition, float speed)

@@ -69,6 +69,7 @@ public class BridgeLogic : MonoBehaviour
 
     public void OnInteract(bool isInteracted)
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.bridge);
         _FadeOut = _startFaded ? !isInteracted : isInteracted;
         t = 0f;
     }
