@@ -35,6 +35,7 @@ public class LaserController : MonoBehaviour
 
     public void OnInteract(bool isInteracted)
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.laser);
         activated = isInteracted;
         tilemapRenderer.enabled = !tilemapRenderer.enabled;
     }

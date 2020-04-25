@@ -8,6 +8,7 @@ public class StarController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.star);
             // Increase the points number and display it 
             GameManager.Instance.Points++;
             GameManager.Instance.UpdatePointsText();

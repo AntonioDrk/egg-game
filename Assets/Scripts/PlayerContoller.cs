@@ -134,6 +134,7 @@ public class PlayerContoller : MonoBehaviour
     public void KillPlayer()
     {
         // Instantiate the particles prefab from Resources
+        SoundManager.Instance.PlaySound(SoundManager.Instance.death);
         Instantiate(Resources.Load<GameObject>("DeathParticles") as GameObject, transform.position, Quaternion.identity);        
         this.gameObject.SetActive(false);
 
