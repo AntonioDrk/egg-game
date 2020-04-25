@@ -29,13 +29,13 @@ public class UIManager : MonoBehaviour
 
     public void StartLevel(int k)
     {
-        // Delete any saved checkpoint from the last time you played
-        SaveSystem.DeleteCheckpointData();
         LoadScene(k);
     }
 
     public void LoadScene(int k)
     {
+        // Delete any saved checkpoint from the last time you played
+        SaveSystem.DeleteCheckpointData();
         SceneManager.LoadScene(k);
     }
 
@@ -43,4 +43,16 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    /*
+    public void StartLevelFromSwitch()
+    {
+        Invoke("StartLastLevel", 2.0f);
+    }
+    */
 }
