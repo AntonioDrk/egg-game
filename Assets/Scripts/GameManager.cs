@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,9 +46,9 @@ public class GameManager : MonoBehaviour
         {
             Points = 0;
             // Save the current position
-            SaveSystem.SaveCheckpointData(player.transform.position);
+            SaveSystem.SaveCheckpointData(player.transform.position, -1);
             // Save the current level
-            SaveSystem.SaveLevelData();
+            //SaveSystem.SaveLevelData();
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,26 +11,18 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        //File.Delete(Application.persistentDataPath + "Levels.txt");
     }
 
     public void StartLastLevel()
     {
         LevelData data = SaveSystem.LoadLevelData();
-        if(data != null)
-        {
-            StartLevel(data.CurrentLvl);
-        }
-        // If there's no save (it's the first time you play the game)
-        else
-        {
-            // Load the first level
-            StartLevel(1);
-        }
+        StartLevel(data.lastLevel);
     }
 
     public void StartLevel(int k)
     {
-        LoadScene(k);
+        LoadScene(k + 2);
     }
 
     public void LoadScene(int k)
@@ -48,11 +41,4 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
-
-    /*
-    public void StartLevelFromSwitch()
-    {
-        Invoke("StartLastLevel", 2.0f);
-    }
-    */
 }

@@ -6,10 +6,22 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class LevelData
 {
-    public int CurrentLvl;
+    public int lastLevel;
+    public int[] stars;
 
     public LevelData()
     {
-        CurrentLvl = SceneManager.GetActiveScene().buildIndex;
+        lastLevel = 1;
+        stars = new int[10];
+    }
+
+    public void SaveLevelData(int currentLevel, int currentStars)
+    {
+        Debug.Log("Current level & stars: " + currentLevel + " " + currentStars);
+        if (currentStars > stars[currentLevel])
+            stars[currentLevel] = currentStars;
+
+        if (currentLevel == lastLevel)
+            lastLevel++;
     }
 }
