@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StarController : MonoBehaviour
 {
+    public int id;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -12,6 +14,7 @@ public class StarController : MonoBehaviour
             // Increase the points number and display it 
             GameManager.Instance.Points++;
             GameManager.Instance.UpdatePointsText();
+            GameManager.Instance.starsId[id] = true;
 
             // Instantiate the particles prefab from Resources
             Instantiate(Resources.Load<GameObject>("StarParticles") as GameObject, transform.position, Quaternion.identity);

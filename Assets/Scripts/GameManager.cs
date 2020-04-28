@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text pointsText;
 
+    public bool[] starsId;
+
     private void Awake()
     {
         if (GameManager.Instance != null)
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("There seem to be two GameManagers instances in this scene, this will cause unwanted behaviour!");
         }
         Instance = this;
+        starsId = new bool[3];
     }
 
     private void Start()
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
     private void LoadLastCheckpoint()
     {
         var player = GameObject.Find("Player");
+        var egg = GameObject.Find("Egg");
+        var stars = GameObject.Find("Stars");
 
         CheckpointData data = SaveSystem.LoadCheckpointData();
         // If you found the checkpoint data file
@@ -40,15 +45,20 @@ public class GameManager : MonoBehaviour
         {
             Points = data.points;
             player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+            egg.transform.position = new Vector3(data.eggPosition[0], data.eggPosition[1], data.eggPosition[2]);
+
+            starsId = data.stars;
+            for (int i = 0; i < stars.transform.childCount; i++)
+                if (starsId[i])
+                    stars.transform.GetChild(i).gameObject.SetActive(false);
+
         }
         // If there's no checkpoint (it's the beginning of the level)
         else
         {
             Points = 0;
             // Save the current position
-            SaveSystem.SaveCheckpointData(player.transform.position, -1);
-            // Save the current level
-            //SaveSystem.SaveLevelData();
+            SaveSystem.SaveCheckpointData(player.transform.position, -1, egg.transform.position);
         }
     }
 

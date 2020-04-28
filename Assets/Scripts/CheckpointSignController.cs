@@ -18,14 +18,22 @@ public class CheckpointSignController : MonoBehaviour
                 {
                     SoundManager.Instance.PlaySound(SoundManager.Instance.checkpoint);
                     GameManager.Instance.UpdateInstructionsText("Progress saved");
-                    SaveSystem.SaveCheckpointData(this.gameObject.transform.position, id);
+                    var egg = GameObject.Find("Egg");
+                    SaveSystem.SaveCheckpointData(this.gameObject.transform.position, id, egg.transform.position);
                 }
             }
+            // it's the flag
             else
             {
-                Debug.Log("Save data for level " + (SceneManager.GetActiveScene().buildIndex - 2));
-                SaveSystem.SaveLevelData(SceneManager.GetActiveScene().buildIndex - 2, GameManager.Instance.Points);
-                UIManager.Instance.LoadScene(0);
+                var egg = GameObject.Find("Egg");
+                if(egg.GetComponent<EggController>().isInHand)
+                {
+                    Debug.Log("Save data for level " + (SceneManager.GetActiveScene().buildIndex - 2));
+                    SaveSystem.SaveLevelData(SceneManager.GetActiveScene().buildIndex - 2, GameManager.Instance.Points);
+                    UIManager.Instance.LoadScene(0);
+                }
+                else
+                    GameManager.Instance.UpdateInstructionsText("Where is the egg?");
             }            
         }
     }

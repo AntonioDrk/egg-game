@@ -123,5 +123,8 @@ public class EggController : MonoBehaviour
         // instantiate the particles prefab from Resources
         Instantiate(Resources.Load<GameObject>("EggCrackParticles") as GameObject, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
+
+        SoundManager.Instance.PlaySound(SoundManager.Instance.eggCrack);
+        player.GetComponent<PlayerContoller>().Invoke("KillPlayer", 2.0f); 
     }
 }

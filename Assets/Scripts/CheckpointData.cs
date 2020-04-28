@@ -7,9 +7,11 @@ public class CheckpointData
 {
     public int id;
     public float[] position;
+    public float[] eggPosition;
+    public bool[] stars;
     public int points;
 
-    public CheckpointData(Vector3 checkPointPosition, int signId)
+    public CheckpointData(Vector3 checkPointPosition, int signId, Vector3 eggPos)
     {
         id = signId;
 
@@ -18,6 +20,12 @@ public class CheckpointData
         position[1] = checkPointPosition.y;
         position[2] = checkPointPosition.z;
 
+        eggPosition = new float[3];
+        eggPosition[0] = eggPos.x;
+        eggPosition[1] = eggPos.y;
+        eggPosition[2] = eggPos.z;
+
+        stars = GameManager.Instance.starsId;
         points = GameManager.Instance.Points;
     }
 }

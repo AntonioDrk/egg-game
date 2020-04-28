@@ -49,14 +49,14 @@ public static class SaveSystem
     }
 
     /// functions for the last checkpoint data
-    public static void SaveCheckpointData(Vector3 checkpointPosition, int id)
+    public static void SaveCheckpointData(Vector3 checkpointPosition, int id, Vector3 eggPosition)
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
         string path = Application.persistentDataPath + "Checkpoint.txt";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        CheckpointData data = new CheckpointData(checkpointPosition, id);
+        CheckpointData data = new CheckpointData(checkpointPosition, id, eggPosition);
 
         formatter.Serialize(stream, data);
         stream.Close();
