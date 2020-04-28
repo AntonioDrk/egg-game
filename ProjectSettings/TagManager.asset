@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Egg
+  - Wood
   layers:
   - Default
   - TransparentFX

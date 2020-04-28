@@ -46,7 +46,8 @@ public class EggController : MonoBehaviour
         DisplayDistanceFromEgg();
         if (Input.GetKeyDown(KeyCode.E) && !cracked)
         {
-            if(pickupAllowed && isInHand == false)
+            SoundManager.Instance.PlaySound(SoundManager.Instance.pickEgg);
+            if (pickupAllowed && isInHand == false)
             {
                 PickUp();
             }

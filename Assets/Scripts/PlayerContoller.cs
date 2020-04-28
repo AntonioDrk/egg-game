@@ -11,6 +11,7 @@ public class PlayerContoller : MonoBehaviour
     private Animator anim;
     private Vector3 movement;
     private SpriteRenderer spriteRenderer;
+    private AudioSource audio;
 
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     private Vector2 m_Velocity = Vector2.zero;
@@ -29,6 +30,7 @@ public class PlayerContoller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>();
     }    
 
     void FixedUpdate()
@@ -42,6 +44,12 @@ public class PlayerContoller : MonoBehaviour
 
         if (movement.x != 0)
         {
+            if(audio.isPlaying == false)
+            {
+                audio.volume = 1;
+                audio.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
+                audio.Play();
+            }
             // Flipping of the sprite
             if (movement.x > 0)
             {
@@ -60,6 +68,10 @@ public class PlayerContoller : MonoBehaviour
         }
         else
         {
+            if(audio.isPlaying)
+            {
+                audio.Pause();
+            }
             rb.velocity = new Vector2(0, rb.velocity.y);
             anim.SetBool("moving", false);
         }
@@ -77,6 +89,7 @@ public class PlayerContoller : MonoBehaviour
     /// </summary>
     private void OnPlayerJump()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.jump);
         EggController eggController = egg.GetComponent<EggController>();
         if (eggController.isInHand)
         {
@@ -97,6 +110,15 @@ public class PlayerContoller : MonoBehaviour
         // Check if the collision was made with an object under the player
         if (CollisionIsWithGround(other))
             _grounded = true;
+
+        if (other.collider.gameObject.tag == "Wood")
+        {
+            audio.clip = SoundManager.Instance.walkOnWood;
+        }
+        else
+        {
+            audio.clip = SoundManager.Instance.walk;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6120016836221604591}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeSpeed: 0.15
+  _startFaded: 1
 --- !u!19719996 &6120016836221604591
 TilemapCollider2D:
   m_ObjectHideFlags: 0
