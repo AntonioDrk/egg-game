@@ -18,8 +18,17 @@ public class CheckpointSignController : MonoBehaviour
                 {
                     SoundManager.Instance.PlaySound(SoundManager.Instance.checkpoint);
                     GameManager.Instance.UpdateInstructionsText("Progress saved");
+
                     var egg = GameObject.Find("Egg");
-                    SaveSystem.SaveCheckpointData(this.gameObject.transform.position, id, egg.transform.position);
+                    Vector3 eggPos = egg.transform.position;
+                    
+                    // if the egg is in hand's player, it should teleport on the ground next time
+                    if(egg.GetComponent<EggController>().isInHand)
+                    {
+                        eggPos = new Vector3(other.transform.position.x, other.transform.position.y - 0.48f, 0f);
+                    }
+
+                    SaveSystem.SaveCheckpointData(this.gameObject.transform.position, id, eggPos);
                 }
             }
             // it's the flag
