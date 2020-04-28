@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
 
     public void StartLastLevel()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.buttonClick);
         LevelData data = SaveSystem.LoadLevelData();
         StartLevel(data.lastLevel);
     }
@@ -27,6 +28,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadScene(int k)
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.buttonClick);
         // Delete any saved checkpoint from the last time you played
         SaveSystem.DeleteCheckpointData();
         SceneManager.LoadScene(k);
@@ -39,6 +41,7 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.buttonClick);
         Application.Quit();
     }
 }

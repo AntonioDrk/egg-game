@@ -12,6 +12,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip death;
     public AudioClip checkpoint;
     public AudioClip eggCrack;
+    public AudioClip pickEgg;
+    public AudioClip jump;
+    public AudioClip buttonClick;
+    public AudioClip walk;
+    public AudioClip walkOnWood;
 
     private GameObject manager { get { return GameObject.Find("SoundManager"); } }
     private AudioSource source { get { return manager.GetComponent<AudioSource>(); } }
@@ -44,8 +49,9 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip givenSound)
+    public void PlaySound(AudioClip sound)
     {
-        source.PlayOneShot(givenSound);
+        source.volume = 0.75f;
+        source.PlayOneShot(sound);
     }
 }
