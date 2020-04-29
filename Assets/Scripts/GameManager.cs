@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text instructionsText;
     [SerializeField]
-    private Text pointsText;
+    private Text pointsText; 
+    [SerializeField]
+    private Text timeText;
 
     public bool[] starsId;
 
@@ -70,5 +72,10 @@ public class GameManager : MonoBehaviour
     public void UpdateInstructionsText(string instructions)
     {
         instructionsText.text = instructions;
+    }
+
+    public void UpdateTimeText(string time)
+    {
+        timeText.text = time;
     }
 }
