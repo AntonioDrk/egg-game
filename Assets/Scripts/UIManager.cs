@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        //File.Delete(Application.persistentDataPath + "Levels.txt");
+        //File.Delete(Application.persistentDataPath + "Stats.txt");
     }
 
     private void Start()
@@ -64,10 +64,10 @@ public class UIManager : MonoBehaviour
         GameObject.Find("Falling").GetComponent<TextMeshProUGUI>().text = data.deathByFalling.ToString();
         GameObject.Find("Laser").GetComponent<TextMeshProUGUI>().text = data.deathByLaser.ToString();
 
-        if(data.fastestWin != 0)
+        if(data.slowestWin != 0)
         {
-            GameObject.Find("Slow").GetComponent<TextMeshProUGUI>().text = data.slowestWin.ToString();
-            GameObject.Find("Fast").GetComponent<TextMeshProUGUI>().text = data.fastestWin.ToString();
+            GameObject.Find("Slow").GetComponent<TextMeshProUGUI>().text = TimerController.Instance.GetTimeString(data.slowestWin);
+            GameObject.Find("Fast").GetComponent<TextMeshProUGUI>().text = TimerController.Instance.GetTimeString(data.fastestWin);
         }
         else
         {

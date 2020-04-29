@@ -39,6 +39,7 @@ public class CheckpointSignController : MonoBehaviour
                 {
                     Debug.Log("Save data for level " + (SceneManager.GetActiveScene().buildIndex - 2));
                     SaveSystem.SaveLevelData(SceneManager.GetActiveScene().buildIndex - 2, GameManager.Instance.Points);
+                    SaveSystem.SaveStatsData(0, 0, 0, TimerController.Instance.GetTime());
                     UIManager.Instance.LoadScene(0);
                 }
                 else

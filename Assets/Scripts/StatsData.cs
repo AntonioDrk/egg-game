@@ -13,8 +13,8 @@ public class StatsData
         eggDrop = 0;
         deathByLaser = 0;
         deathByFalling = 0;
-        slowestWin = 99999;
-        fastestWin = 0;
+        slowestWin = 0;
+        fastestWin = 99999;
     }
 
     public void IncreaseVal(int eggDropVal, int deathByLaserVal, int deathByFallingVal, float currentTime)
@@ -25,9 +25,9 @@ public class StatsData
 
         if(currentTime > 0)
         {
-            if (currentTime < slowestWin)
+            if (currentTime > slowestWin)
                 slowestWin = currentTime;
-            if (currentTime > fastestWin)
+            if (currentTime < fastestWin)
                 fastestWin = currentTime;
         }
     }

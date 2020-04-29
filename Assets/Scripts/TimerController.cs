@@ -30,20 +30,10 @@ public class TimerController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex > 2)
         {
-            var time = Time.time - startTime;
+            var time = GetTime();
 
-            int minutes = (int)time / 60;
-            int seconds = (int)time % 60;
+            string timeString = GetTimeString(time);
 
-            string timeString = "";
-            if (seconds < 10)
-            {
-                timeString = minutes.ToString() + ":0" + seconds.ToString();
-            }
-            else
-            {
-                timeString = minutes.ToString() + ":" + seconds.ToString();
-            }
             GameManager.Instance.UpdateTimeText(timeString);
         }
     }
@@ -51,5 +41,28 @@ public class TimerController : MonoBehaviour
     public void ResetTime()
     {
         startTime = Time.time;
+    }
+
+    public float GetTime()
+    {
+        var time = Time.time - startTime;
+        return time;
+    }
+
+    public string GetTimeString(float time)
+    {
+        int minutes = (int)time / 60;
+        int seconds = (int)time % 60;
+
+        string timeString = "";
+        if (seconds < 10)
+        {
+            timeString = minutes.ToString() + ":0" + seconds.ToString();
+        }
+        else
+        {
+            timeString = minutes.ToString() + ":" + seconds.ToString();
+        }
+        return timeString;
     }
 }
