@@ -91,4 +91,45 @@ public static class SaveSystem
             #endif
         }
     }
+    
+    /// functions for the statistics data
+    public static void SaveStatsData(int eggDrop, int killed)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "Stats.txt";
+
+        if (File.Exists(path))
+        {
+            StatsData data = LoadStatsData();
+            data.IncreaseVal(eggDrop, killed);
+
+            FileStream stream = new FileStream(path, FileMode.Open);
+            formatter.Serialize(stream, data);
+            stream.Close();
+        }
+        else
+        {
+            FileStream stream = new FileStream(path, FileMode.Create);
+            StatsData data = new StatsData();
+            formatter.Serialize(stream, data);
+            stream.Close();
+        }
+    }
+
+    public static StatsData LoadStatsData()
+    {
+        string path = Application.persistentDataPath + "Stats.txt";
+
+        if (!File.Exists(path))
+            SaveStatsData(0, 0);
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path, FileMode.Open);
+
+        StatsData data = formatter.Deserialize(stream) as StatsData;
+        stream.Close();
+
+        return data;
+    }
+
 }

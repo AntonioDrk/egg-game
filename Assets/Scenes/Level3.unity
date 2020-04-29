@@ -21781,6 +21781,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3640517032715440473, guid: abd54ed14f9b79f418737a9351c259ae,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590454251138688651, guid: abd54ed14f9b79f418737a9351c259ae,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1534154907}
+    - target: {fileID: 4590454251138688651, guid: abd54ed14f9b79f418737a9351c259ae,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abd54ed14f9b79f418737a9351c259ae, type: 3}
 --- !u!1 &1806351882

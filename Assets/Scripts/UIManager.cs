@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,6 +14,13 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
         //File.Delete(Application.persistentDataPath + "Levels.txt");
+    }
+
+    private void Start()
+    {
+        // Stats scene
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+            LoadStatsUI();
     }
 
     public void StartLastLevel()
@@ -43,5 +52,12 @@ public class UIManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.buttonClick);
         Application.Quit();
+    }
+
+    public void LoadStatsUI()
+    {
+        StatsData data = SaveSystem.LoadStatsData();
+        GameObject.Find("EggDrop").GetComponent<TextMeshProUGUI>().text = data.eggDrop.ToString();
+        GameObject.Find("Killed").GetComponent<TextMeshProUGUI>().text = data.killed.ToString();
     }
 }
