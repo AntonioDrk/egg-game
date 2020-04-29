@@ -58,6 +58,20 @@ public class UIManager : MonoBehaviour
     {
         StatsData data = SaveSystem.LoadStatsData();
         GameObject.Find("EggDrop").GetComponent<TextMeshProUGUI>().text = data.eggDrop.ToString();
-        GameObject.Find("Killed").GetComponent<TextMeshProUGUI>().text = data.killed.ToString();
+        int deaths = data.deathByLaser + data.deathByFalling + data.eggDrop;
+        GameObject.Find("Killed").GetComponent<TextMeshProUGUI>().text = deaths.ToString();
+        GameObject.Find("Falling").GetComponent<TextMeshProUGUI>().text = data.deathByFalling.ToString();
+        GameObject.Find("Laser").GetComponent<TextMeshProUGUI>().text = data.deathByLaser.ToString();
+
+        if(data.fastestWin != 0)
+        {
+            GameObject.Find("Slow").GetComponent<TextMeshProUGUI>().text = data.slowestWin.ToString();
+            GameObject.Find("Fast").GetComponent<TextMeshProUGUI>().text = data.fastestWin.ToString();
+        }
+        else
+        {
+            GameObject.Find("Slow").GetComponent<TextMeshProUGUI>().text = "-";
+            GameObject.Find("Fast").GetComponent<TextMeshProUGUI>().text = "-";
+        }
     }
 }

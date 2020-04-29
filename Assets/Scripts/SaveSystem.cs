@@ -93,7 +93,7 @@ public static class SaveSystem
     }
     
     /// functions for the statistics data
-    public static void SaveStatsData(int eggDrop, int killed)
+    public static void SaveStatsData(int eggDrop, int deathByLaser, int deathByFalling, float time)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "Stats.txt";
@@ -101,7 +101,7 @@ public static class SaveSystem
         if (File.Exists(path))
         {
             StatsData data = LoadStatsData();
-            data.IncreaseVal(eggDrop, killed);
+            data.IncreaseVal(eggDrop, deathByLaser, deathByFalling, time);
 
             FileStream stream = new FileStream(path, FileMode.Open);
             formatter.Serialize(stream, data);
@@ -121,7 +121,7 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "Stats.txt";
 
         if (!File.Exists(path))
-            SaveStatsData(0, 0);
+            SaveStatsData(0, 0, 0, 0);
 
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Open);

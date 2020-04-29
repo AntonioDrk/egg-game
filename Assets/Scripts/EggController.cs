@@ -98,7 +98,7 @@ public class EggController : MonoBehaviour
 
     public void EggCrack()
     {
-        SaveSystem.SaveStatsData(1, 0);
+        SaveSystem.SaveStatsData(1, 0, 0, 0);
 
         cracked = true;
         isInHand = false;
@@ -123,7 +123,7 @@ public class EggController : MonoBehaviour
     
     public void Explosion()
     {
-        SaveSystem.SaveStatsData(1, 0);
+        SaveSystem.SaveStatsData(1, 0, 0, 0);
 
         // instantiate the particles prefab from Resources
         Instantiate(Resources.Load<GameObject>("EggCrackParticles") as GameObject, transform.position, Quaternion.identity);

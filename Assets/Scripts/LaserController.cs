@@ -25,6 +25,14 @@ public class LaserController : MonoBehaviour
 
         if (_killPlayer && other.gameObject.CompareTag("Player"))
         {
+            // player died from falling
+            if(this.gameObject.name == "DeathLine")
+            {
+                SaveSystem.SaveStatsData(0, 0, 1, 0);
+            }
+            else
+                SaveSystem.SaveStatsData(0, 1, 0, 0);
+
             other.GetComponent<PlayerContoller>().KillPlayer();
         }
         else if (other.gameObject.CompareTag("Egg"))
