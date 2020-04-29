@@ -44,11 +44,15 @@ public class PlayerContoller : MonoBehaviour
 
         if (movement.x != 0)
         {
-            if(audio.isPlaying == false)
+            if(audio.isPlaying == false && _grounded)
             {
                 audio.volume = 1;
                 audio.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
                 audio.Play();
+            }
+            else if(audio.isPlaying && !_grounded)
+            {
+                audio.Pause();
             }
             // Flipping of the sprite
             if (movement.x > 0)

@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundManager.Instance.buttonClick);
         // Delete any saved checkpoint from the last time you played
         SaveSystem.DeleteCheckpointData();
+        TimerController.Instance.ResetTime();
         SceneManager.LoadScene(k);
     }
 
