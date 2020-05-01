@@ -42,13 +42,13 @@ public class EggController : MonoBehaviour
 
     void Update()
     {
-
         DisplayDistanceFromEgg();
-        if (Input.GetKeyDown(KeyCode.E) && !cracked)
+        var levelFinished = GameManager.Instance.levelFinished;
+        if (Input.GetKeyDown(KeyCode.E) && !cracked && !levelFinished)
         {
-            SoundManager.Instance.PlaySound(SoundManager.Instance.pickEgg);
             if (pickupAllowed && isInHand == false)
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.pickEgg);
                 PickUp();
             }
             else if(isInHand == true)

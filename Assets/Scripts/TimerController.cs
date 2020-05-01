@@ -28,7 +28,8 @@ public class TimerController : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex > 2)
+        var levelFinished = GameManager.Instance.levelFinished;
+        if (SceneManager.GetActiveScene().buildIndex > 2 && !levelFinished)
         {
             var time = GetTime();
 
