@@ -42,7 +42,8 @@ public class PlayerContoller : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal");
 
-        if (movement.x != 0)
+        var levelFinished = GameManager.Instance.levelFinished;
+        if (movement.x != 0 && !levelFinished)
         {
             if(audio.isPlaying == false && _grounded)
             {

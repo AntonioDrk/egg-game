@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private Text timeText;
 
     public bool[] starsId;
+    public bool levelFinished = false;
 
     private void Awake()
     {
@@ -77,5 +78,14 @@ public class GameManager : MonoBehaviour
     public void UpdateTimeText(string time)
     {
         timeText.text = time;
+    }
+
+    public void FinishLevel()
+    {
+        levelFinished = true;
+        var pointsObject = GameObject.Find("Points");
+        var timerObject = GameObject.Find("Clock");
+        pointsObject.SetActive(false);
+        timerObject.SetActive(false);
     }
 }

@@ -49,6 +49,16 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void RestartLevel()
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextLevel()
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void Quit()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.buttonClick);

@@ -1,10 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CheckpointSignController : MonoBehaviour
 {
     public int id;
     public bool lastCheckpoint; // true if it's the end of the level
+
+    public GameObject finish;
+    public Text timer;
+
+    void Start()
+    {
+        finish = GameObject.Find("Finish");
+        timer = GameObject.Find("Finish/Panel/Time/Timer").GetComponent<Text>();
+
+        var currentLevel = SceneManager.GetActiveScene().buildIndex;
+        if (currentLevel - 2 == 3)
+        {
+            var nextLevelButton = GameObject.Find("Finish/Panel/Next Level Button");
+            nextLevelButton.SetActive(false);
+        }
+
+        finish.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,10 +56,21 @@ public class CheckpointSignController : MonoBehaviour
                 var egg = GameObject.Find("Egg");
                 if(egg.GetComponent<EggController>().isInHand)
                 {
+                    finish.SetActive(true);
+                    var time = TimerController.Instance.GetTime();
+                    timer.text = TimerController.Instance.GetTimeString(time);
+                    var stars = GameManager.Instance.Points;
+                    GameManager.Instance.FinishLevel();
+
+                    for (int j = 1; j <= stars; j++)
+                    {
+                        var star = GameObject.Find("Star" + j.ToString());
+                        star.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+                    }
+
                     Debug.Log("Save data for level " + (SceneManager.GetActiveScene().buildIndex - 2));
-                    SaveSystem.SaveLevelData(SceneManager.GetActiveScene().buildIndex - 2, GameManager.Instance.Points);
-                    SaveSystem.SaveStatsData(0, 0, 0, TimerController.Instance.GetTime());
-                    UIManager.Instance.LoadScene(0);
+                    SaveSystem.SaveLevelData(SceneManager.GetActiveScene().buildIndex - 2, stars);
+                    SaveSystem.SaveStatsData(0, 0, 0, time);
                 }
                 else
                     GameManager.Instance.UpdateInstructionsText("Where is the egg?");
