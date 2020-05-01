@@ -10,8 +10,11 @@ public class InteractablePlate:Interactable
 
     private SpriteRenderer spriteRenderer;
 
+    private int collidersNr;
+
     private void Start()
     {
+        collidersNr = 0;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -28,8 +31,12 @@ public class InteractablePlate:Interactable
         // If the player is on top of the plate, run the animaiton
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Box"))
         {
-            ChangeSprite(true);
-            _interactCallback.Invoke(true);
+            collidersNr++;
+            if (collidersNr == 1)
+            {
+                ChangeSprite(true);
+                _interactCallback.Invoke(true);
+            }
         }
     }
 
@@ -37,8 +44,12 @@ public class InteractablePlate:Interactable
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Box"))
         {
-            ChangeSprite(false);
-            _interactCallback.Invoke(false);
+            collidersNr--;
+            if(collidersNr == 0)
+            {
+                ChangeSprite(false);
+                _interactCallback.Invoke(false);
+            }
         }
             
     }

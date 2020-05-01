@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
         //File.Delete(Application.persistentDataPath + "Stats.txt");
+        //SaveSystem.SaveLevelData(3, 0);
     }
 
     private void Start()

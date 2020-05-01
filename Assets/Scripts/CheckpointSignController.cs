@@ -12,17 +12,20 @@ public class CheckpointSignController : MonoBehaviour
 
     void Start()
     {
-        finish = GameObject.Find("Finish");
-        timer = GameObject.Find("Finish/Panel/Time/Timer").GetComponent<Text>();
-
-        var currentLevel = SceneManager.GetActiveScene().buildIndex;
-        if (currentLevel - 2 == 3)
+        if(lastCheckpoint)
         {
-            var nextLevelButton = GameObject.Find("Finish/Panel/Next Level Button");
-            nextLevelButton.SetActive(false);
-        }
+            finish = GameObject.Find("Finish");
+            timer = GameObject.Find("Finish/Panel/Time/Timer").GetComponent<Text>();
 
-        finish.SetActive(false);
+            var currentLevel = SceneManager.GetActiveScene().buildIndex;
+            if (currentLevel - 2 == 3)
+            {
+                var nextLevelButton = GameObject.Find("Finish/Panel/Next Level Button");
+                nextLevelButton.SetActive(false);
+            }
+
+            finish.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -68,7 +71,7 @@ public class CheckpointSignController : MonoBehaviour
                         star.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
                     }
 
-                    Debug.Log("Save data for level " + (SceneManager.GetActiveScene().buildIndex - 2));
+                    Debug.Log("Save the data for level " + (SceneManager.GetActiveScene().buildIndex - 2));
                     SaveSystem.SaveLevelData(SceneManager.GetActiveScene().buildIndex - 2, stars);
                     SaveSystem.SaveStatsData(0, 0, 0, time);
                 }
