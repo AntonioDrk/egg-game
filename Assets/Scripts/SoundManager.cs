@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip buttonClick;
     public AudioClip walk;
     public AudioClip walkOnWood;
+    public AudioClip movePlatform;
 
     private GameObject manager { get { return GameObject.Find("SoundManager"); } }
     private AudioSource source { get { return manager.GetComponent<AudioSource>(); } }

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2881,7 +2881,7 @@ PrefabInstance:
     - target: {fileID: 5007065828918746681, guid: c0e995eaa30dc954e83e0e78f72223cb,
         type: 3}
       propertyPath: _movementSpeed
-      value: 0.02
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5007065828918746686, guid: c0e995eaa30dc954e83e0e78f72223cb,
         type: 3}
@@ -3002,6 +3002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5007065829728800070, guid: c0e995eaa30dc954e83e0e78f72223cb,
         type: 3}
+      propertyPath: _interactCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007065829728800070, guid: c0e995eaa30dc954e83e0e78f72223cb,
+        type: 3}
       propertyPath: OnSprite
       value: 
       objectReference: {fileID: 5243753712657979963, guid: a1a8f07db3526e34e9c23103d14ae625,
@@ -3012,6 +3017,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1009877919312125190, guid: a1a8f07db3526e34e9c23103d14ae625,
         type: 3}
+    - target: {fileID: 5007065829728800070, guid: c0e995eaa30dc954e83e0e78f72223cb,
+        type: 3}
+      propertyPath: _interactCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007065829728800070, guid: c0e995eaa30dc954e83e0e78f72223cb,
+        type: 3}
+      propertyPath: _interactCallback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e995eaa30dc954e83e0e78f72223cb, type: 3}
 --- !u!1001 &1279781504
@@ -3171,6 +3186,7 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: 9e1edd9d0943fd84a81228b44f24f640, type: 3}
   walk: {fileID: 8300000, guid: 9bd80ff3bf71bc34596735d4d5d0506c, type: 3}
   walkOnWood: {fileID: 8300000, guid: da44964afaaa1574ea996f1986e2effb, type: 3}
+  movePlatform: {fileID: 8300000, guid: 950d9560db245364a94f90797df8345c, type: 3}
 --- !u!4 &1319162134
 Transform:
   m_ObjectHideFlags: 0
@@ -3942,7 +3958,7 @@ PrefabInstance:
     - target: {fileID: 5007065828918746681, guid: c0e995eaa30dc954e83e0e78f72223cb,
         type: 3}
       propertyPath: _movementSpeed
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5007065828918746686, guid: c0e995eaa30dc954e83e0e78f72223cb,
         type: 3}
