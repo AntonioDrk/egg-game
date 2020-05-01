@@ -10,7 +10,7 @@ TextureImporter:
     second: tiles_spritesheet_1
   - first:
       213: -3660240866022087686
-    second: tiles_spritesheet_2
+    second: pruple_tiles_spritesheet_2
   - first:
       213: -3031602493707228300
     second: tiles_spritesheet_3
@@ -46,7 +46,7 @@ TextureImporter:
     second: tiles_spritesheet_13
   - first:
       213: -5952514711567295794
-    second: tiles_spritesheet_14
+    second: pruple_tiles_spritesheet_14
   - first:
       213: 6291333254451694048
     second: tiles_spritesheet_15
@@ -82,7 +82,7 @@ TextureImporter:
     second: tiles_spritesheet_25
   - first:
       213: 7471957507673401106
-    second: tiles_spritesheet_26
+    second: pruple_tiles_spritesheet_26
   - first:
       213: -4379233246968791251
     second: tiles_spritesheet_27
@@ -94,7 +94,7 @@ TextureImporter:
     second: tiles_spritesheet_29
   - first:
       213: -2610440317645429688
-    second: tiles_spritesheet_30
+    second: pruple_tiles_spritesheet_30
   - first:
       213: -2806810967884856105
     second: tiles_spritesheet_31
@@ -118,7 +118,7 @@ TextureImporter:
     second: tiles_spritesheet_37
   - first:
       213: 1050598282555121277
-    second: tiles_spritesheet_38
+    second: pruple_tiles_spritesheet_38
   - first:
       213: 3268675256125745846
     second: tiles_spritesheet_39
@@ -130,7 +130,7 @@ TextureImporter:
     second: tiles_spritesheet_41
   - first:
       213: -2066992355452065951
-    second: tiles_spritesheet_42
+    second: pruple_tiles_spritesheet_42
   - first:
       213: 3108490729272760729
     second: tiles_spritesheet_43
@@ -151,10 +151,10 @@ TextureImporter:
     second: box_wooden_exclamation_2
   - first:
       213: -6875669940895347489
-    second: tiles_spritesheet_49
+    second: pruple_tiles_spritesheet_49
   - first:
       213: 2701894285042235513
-    second: tiles_spritesheet_50
+    second: pruple_tiles_spritesheet_50
   - first:
       213: 7354819767241589694
     second: tiles_spritesheet_51
@@ -187,10 +187,10 @@ TextureImporter:
     second: box_wooden_exclamation_3
   - first:
       213: -5398106144758011425
-    second: tiles_spritesheet_61
+    second: pruple_tiles_spritesheet_61
   - first:
       213: -5206653143484739439
-    second: tiles_spritesheet_62
+    second: pruple_tiles_spritesheet_62
   - first:
       213: -7046114690025375335
     second: tiles_spritesheet_63
@@ -223,10 +223,10 @@ TextureImporter:
     second: tiles_spritesheet_72
   - first:
       213: 3069314312594938265
-    second: tiles_spritesheet_73
+    second: pruple_tiles_spritesheet_73
   - first:
       213: -7210650270368417558
-    second: tiles_spritesheet_74
+    second: pruple_tiles_spritesheet_74
   - first:
       213: 1195029989885311443
     second: tiles_spritesheet_75
@@ -259,10 +259,10 @@ TextureImporter:
     second: tiles_spritesheet_84
   - first:
       213: 342482456282683248
-    second: tiles_spritesheet_85
+    second: pruple_tiles_spritesheet_85
   - first:
       213: 1082601745400820809
-    second: tiles_spritesheet_86
+    second: pruple_tiles_spritesheet_86
   - first:
       213: -7847307091893962213
     second: tiles_spritesheet_87
@@ -298,7 +298,7 @@ TextureImporter:
     second: tiles_spritesheet_97
   - first:
       213: 9150760950918650641
-    second: tiles_spritesheet_98
+    second: pruple_tiles_spritesheet_98
   - first:
       213: 8873213167697977847
     second: tiles_spritesheet_99
@@ -334,7 +334,7 @@ TextureImporter:
     second: tiles_spritesheet_109
   - first:
       213: -7105449597366919557
-    second: tiles_spritesheet_110
+    second: pruple_tiles_spritesheet_110
   - first:
       213: -4305847009991089739
     second: tiles_spritesheet_111
@@ -367,7 +367,7 @@ TextureImporter:
     second: tiles_spritesheet_120
   - first:
       213: -2609671211958654846
-    second: tiles_spritesheet_121
+    second: pruple_tiles_spritesheet_121
   - first:
       213: 1099792972580552048
     second: tiles_spritesheet_122
@@ -403,7 +403,7 @@ TextureImporter:
     second: box_woodden_x
   - first:
       213: -5417906904491946949
-    second: tiles_spritesheet_133
+    second: pruple_tiles_spritesheet_133
   - first:
       213: -6824191096331542740
     second: tiles_spritesheet_134
@@ -439,7 +439,7 @@ TextureImporter:
     second: box_wooden_line
   - first:
       213: -4034626589509683680
-    second: tiles_spritesheet_145
+    second: pruple_tiles_spritesheet_145
   - first:
       213: -5746721637048875393
     second: tiles_spritesheet_146
@@ -2528,7 +2528,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_2
+      name: pruple_tiles_spritesheet_2
       rect:
         serializedVersion: 2
         x: 144
@@ -2780,7 +2780,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_14
+      name: pruple_tiles_spritesheet_14
       rect:
         serializedVersion: 2
         x: 144
@@ -3032,7 +3032,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_26
+      name: pruple_tiles_spritesheet_26
       rect:
         serializedVersion: 2
         x: 144
@@ -3116,7 +3116,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_30
+      name: pruple_tiles_spritesheet_30
       rect:
         serializedVersion: 2
         x: 432
@@ -3284,7 +3284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_38
+      name: pruple_tiles_spritesheet_38
       rect:
         serializedVersion: 2
         x: 144
@@ -3368,7 +3368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_42
+      name: pruple_tiles_spritesheet_42
       rect:
         serializedVersion: 2
         x: 432
@@ -3515,7 +3515,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_49
+      name: pruple_tiles_spritesheet_49
       rect:
         serializedVersion: 2
         x: 72
@@ -3536,7 +3536,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_50
+      name: pruple_tiles_spritesheet_50
       rect:
         serializedVersion: 2
         x: 144
@@ -3767,7 +3767,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_61
+      name: pruple_tiles_spritesheet_61
       rect:
         serializedVersion: 2
         x: 72
@@ -3788,7 +3788,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_62
+      name: pruple_tiles_spritesheet_62
       rect:
         serializedVersion: 2
         x: 144
@@ -4019,7 +4019,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_73
+      name: pruple_tiles_spritesheet_73
       rect:
         serializedVersion: 2
         x: 72
@@ -4040,7 +4040,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_74
+      name: pruple_tiles_spritesheet_74
       rect:
         serializedVersion: 2
         x: 144
@@ -4271,7 +4271,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_85
+      name: pruple_tiles_spritesheet_85
       rect:
         serializedVersion: 2
         x: 72
@@ -4292,7 +4292,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_86
+      name: pruple_tiles_spritesheet_86
       rect:
         serializedVersion: 2
         x: 144
@@ -4544,7 +4544,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_98
+      name: pruple_tiles_spritesheet_98
       rect:
         serializedVersion: 2
         x: 144
@@ -4796,7 +4796,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_110
+      name: pruple_tiles_spritesheet_110
       rect:
         serializedVersion: 2
         x: 144
@@ -5027,7 +5027,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_121
+      name: pruple_tiles_spritesheet_121
       rect:
         serializedVersion: 2
         x: 72
@@ -5258,7 +5258,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_133
+      name: pruple_tiles_spritesheet_133
       rect:
         serializedVersion: 2
         x: 72
@@ -5489,7 +5489,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_145
+      name: pruple_tiles_spritesheet_145
       rect:
         serializedVersion: 2
         x: 72
