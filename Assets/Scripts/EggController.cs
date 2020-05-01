@@ -49,10 +49,12 @@ public class EggController : MonoBehaviour
             if (pickupAllowed && isInHand == false)
             {
                 SoundManager.Instance.PlaySound(SoundManager.Instance.pickEgg);
+                GameManager.Instance.UpdateInstructionsText("");
                 PickUp();
             }
             else if(isInHand == true)
             {
+                GameManager.Instance.UpdateInstructionsText("Press 'E' to pick up");
                 PlaceDown();
             }
         }
