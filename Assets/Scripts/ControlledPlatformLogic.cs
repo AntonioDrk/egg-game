@@ -38,7 +38,7 @@ public class ControlledPlatformLogic : MonoBehaviour
             {
                 if (audio.isPlaying == false && _playMusic)
                 {
-                    audio.volume = 1;
+                    audio.volume = 0.75f;
                     audio.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
                     audio.Play();
                 }
@@ -59,7 +59,7 @@ public class ControlledPlatformLogic : MonoBehaviour
             {
                 if (audio.isPlaying == false && _playMusic)
                 {
-                    audio.volume = 1;
+                    audio.volume = 0.75f;
                     audio.pitch = UnityEngine.Random.Range(0.8f, 1.1f);
                     audio.Play();
                 }

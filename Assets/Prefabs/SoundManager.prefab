@@ -54,4 +54,4 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: 9e1edd9d0943fd84a81228b44f24f640, type: 3}
   walk: {fileID: 8300000, guid: 9bd80ff3bf71bc34596735d4d5d0506c, type: 3}
   walkOnWood: {fileID: 8300000, guid: da44964afaaa1574ea996f1986e2effb, type: 3}
-  movePlatform: {fileID: 8300000, guid: 950d9560db245364a94f90797df8345c, type: 3}
+  movePlatform: {fileID: 8300000, guid: dd523243e629d434e990fc946e8921d4, type: 3}
