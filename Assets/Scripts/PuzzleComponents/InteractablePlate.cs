@@ -4,12 +4,31 @@ using  UnityEngine;
 
 public class InteractablePlate:Interactable
 {
+
+    [SerializeField]
+    private Sprite OnSprite, OffSprite;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void ChangeSprite(bool changeSprite)
+    {
+        if (changeSprite)
+            spriteRenderer.sprite = OffSprite;
+        else
+            spriteRenderer.sprite = OnSprite;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // If the player is on top of the plate, run the animaiton
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Box"))
         {
-            RunAnimation();
+            ChangeSprite(true);
             _interactCallback.Invoke(true);
         }
     }
@@ -18,7 +37,7 @@ public class InteractablePlate:Interactable
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Box"))
         {
-            RunAnimation(false);
+            ChangeSprite(false);
             _interactCallback.Invoke(false);
         }
             
