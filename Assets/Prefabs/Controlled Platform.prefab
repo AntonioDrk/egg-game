@@ -77,8 +77,9 @@ GameObject:
   - component: {fileID: 5007065828561745646}
   - component: {fileID: 5007065828561745647}
   - component: {fileID: 5007065828561745644}
+  - component: {fileID: 4991354953570603691}
   m_Layer: 0
-  m_Name: Platform section 1
+  m_Name: PlatformSection
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +183,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1570077}
+  m_Offset: {x: 0, y: 0.16339892}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -193,7 +194,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.315938}
+  m_Size: {x: 1, y: 0.33054197}
   m_EdgeRadius: 0
 --- !u!114 &5007065828561745644
 MonoBehaviour:
@@ -208,6 +209,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _keyCode: 273
+--- !u!61 &4991354953570603691
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007065828561745634}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.49676895, y: 0.39972883}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 0.34285715}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8463593, y: 0.06904662}
+  m_EdgeRadius: 0
 --- !u!1 &5007065828918746687
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heightRange: 2
+  _movementSpeed: 0.01
 --- !u!1 &5007065829094683685
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +298,7 @@ GameObject:
   - component: {fileID: 5007065829094683686}
   - component: {fileID: 5007065829094683687}
   m_Layer: 0
-  m_Name: Platform section 2
+  m_Name: PlatformSection 2
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -374,7 +402,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.15834165}
+  m_Offset: {x: 0, y: 0.16392004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -385,7 +413,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.3186059}
+  m_Size: {x: 1, y: 0.32805204}
   m_EdgeRadius: 0
 --- !u!114 &5007065829094683687
 MonoBehaviour:
@@ -565,6 +593,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _anim: {fileID: 5007065829344319521}
+  OnSprite: {fileID: 0}
+  OffSprite: {fileID: 0}
 --- !u!95 &5007065829344319521
 Animator:
   serializedVersion: 3
@@ -845,6 +875,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _anim: {fileID: 5007065829728800071}
+  OnSprite: {fileID: 0}
+  OffSprite: {fileID: 0}
 --- !u!95 &5007065829728800071
 Animator:
   serializedVersion: 3

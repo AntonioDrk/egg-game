@@ -13,7 +13,7 @@ public class ControlledPlatformLogic : MonoBehaviour
 
     [SerializeField] private float _heightRange = 1f;
     private float _currentHeight = 0;
-    private float _movementSpeed = 0.01f;
+    [SerializeField] private float _movementSpeed = 0.01f;
 
     private void Start()
     {

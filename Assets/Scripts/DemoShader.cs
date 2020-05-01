@@ -38,4 +38,28 @@ public class DemoShader : MonoBehaviour
             _material.SetFloat("_Fade", fadeDuration);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (this.gameObject.name != "PlatformSection")
+            return; 
+
+        // If on the platform the egg entered and is in hand, don't modify it's hierarchy
+        if (other.CompareTag("Egg") && other.gameObject.GetComponent<EggController>().isInHand)
+            return;
+
+        other.gameObject.transform.SetParent(transform);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (this.gameObject.name != "PlatformSection")
+            return; 
+
+        // If on the platform the egg entered and is in hand, don't modify it's hierarchy
+        if (other.CompareTag("Egg") && other.gameObject.GetComponent<EggController>().isInHand)
+            return;
+
+        other.gameObject.transform.SetParent(null);
+    }
 }

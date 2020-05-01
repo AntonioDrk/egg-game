@@ -21,7 +21,7 @@ public class LevelData
         if (currentStars > stars[currentLevel])
             stars[currentLevel] = currentStars;
 
-        if (currentLevel == lastLevel)
+        if (currentLevel == lastLevel && lastLevel < 3)
             lastLevel++;
     }
 }
