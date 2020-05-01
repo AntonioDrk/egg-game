@@ -152,7 +152,7 @@ MonoBehaviour:
   egg: {fileID: 0}
   m_MovementSmoothing: 0.05
   _xSpeed: 300
-  _jumpForce: 6.5
+  _jumpForce: 6.7
   _grounded: 1
 --- !u!50 &2506728846948856419
 Rigidbody2D:
